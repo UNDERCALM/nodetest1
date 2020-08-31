@@ -1,0 +1,40 @@
+{
+  "name": "node1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start8": "node -r esm .",
+    "strat": "pm2 runtime start scosystem.config.js --env production",
+    "debug": "DEBUG=* node -r esm .",
+    "dev": "node -r esm ./node_modules/nodemon/bin/nodemon.js",
+    "test": "mocha ./test/*",
+    "doker:build": "doker build . -t",
+    "heroku:push": "heroku container:push",
+    "heroku:release": "heroku container release"
+
+
+  },
+  "mocha":{
+    "require": ["esm"]
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "express-basic-auth": "^1.2.0",
+    "helmet": "^4.1.0",
+    "mocha": "^8.1.3",
+    "nodemon": "^2.0.4",
+    "supertest": "^4.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.7.0",
+    "eslint-plugin-react": "^7.20.6"
+  }
+}

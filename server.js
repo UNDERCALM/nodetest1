@@ -1,0 +1,12 @@
+import { server } from "./config";
+import { rootRouter } from "./routes";
+import registerMiddlewares from "./middlewares";
+async function main() {
+    registerMiddlewares(server);
+    server.all("/",(req,res) => req.redirect("/v1"));
+    server.use("/v1", rootRouter);
+  
+
+    server.listen();
+}
+main();
